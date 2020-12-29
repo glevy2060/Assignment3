@@ -6,11 +6,11 @@ import java.util.List;
 public class Course {
     private String courseNum;
     private String courseName;
-    private List<Course> kdamCourses;
+    private List<String> kdamCourses;
     private int numOfMaxStudent;
     private List<Student> listOfStudents;
 
-    public Course(String courseNum, String courseName, List<Course> kdamCourses, int numOfMaxStudent, int numOfStudent) {
+    public Course(String courseNum, String courseName, List<String> kdamCourses, int numOfMaxStudent, int numOfStudent) {
         this.courseNum = courseNum;
         this.courseName = courseName;
         this.kdamCourses = kdamCourses;
@@ -28,7 +28,7 @@ public class Course {
     }
 
     //opcode: 6;
-    public List<Course> getKdamCourses() {
+    public List<String> getKdamCourses() {
         return kdamCourses;
     }
 

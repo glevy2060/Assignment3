@@ -2,6 +2,8 @@ package bgu.spl.net.impl;
 import bgu.spl.net.passiveObjects.Course;
 import bgu.spl.net.passiveObjects.Student;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
 
 /**
@@ -37,9 +39,24 @@ public class Database {
 	 * loades the courses from the file path specified 
 	 * into the bgu.spl.net.impl.Database, returns true if successful.
 	 */
-	boolean initialize(String coursesFilePath) {
-		// TODO: implement
-		return false;
+	public boolean initialize(String coursesFilePath) { //todo check public
+		try {
+			File courses = new File(coursesFilePath);
+			Scanner myReader = new Scanner(courses);
+			while (myReader.hasNextLine()){
+				String data = myReader.nextLine();
+				String[] c = data.split("\\|");
+				c[2] = c[2].substring(1, c[2].length()-1);
+				String[] kdamCourse = c[2].split(",");
+				Course newCourse = new Course(c[0], c[1], Arrays.asList(kdamCourse.clone()), Integer.parseInt(c[3]), 0);
+				courseList.put(c[0], newCourse);
+			}
+			myReader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("file not found");
+			return false;
+		}
+		return true;
 	}
 
 	public Map<String, Student> getStudentList() {

@@ -1,6 +1,7 @@
 package bgu.spl.net.impl.echo;
 import bgu.spl.net.api.MessagingProtocol;
 import bgu.spl.net.impl.Database;
+import bgu.spl.net.passiveObjects.ServerMessage;
 import bgu.spl.net.passiveObjects.Student;
 
 public class MessageProtocol implements MessagingProtocol<String> {
@@ -11,7 +12,7 @@ public class MessageProtocol implements MessagingProtocol<String> {
     public String process(String msg) {
         //todo check how to handle error message from server to client
         String[] splitMsg = msg.split("\\s+");
-        return act(splitMsg);
+        return "";
     }
 
     @Override
@@ -19,107 +20,106 @@ public class MessageProtocol implements MessagingProtocol<String> {
         return false;
     }
 
-    private String act(String[] msg) {
+    private ServerMessage act(String[] msg) {
+        ServerMessage m = null;
         String command = msg[0];
         if (command.equals("ADMINREG")) {
             if (!db.getStudentList().containsKey(msg[1])) {
                 db.getStudentList().put(msg[1], new Student(msg[1], msg[2], true));
-                return("ACK 1");
+                m = new ServerMessage(12, 1, "");
             } else
-                return("ERROR 1");
+                m = new ServerMessage(13, 1, "");
         } else if (command.equals("STUDENTREG")) {
             if (!db.getStudentList().containsKey(msg[1])) {
                 db.getStudentList().put(msg[1], new Student(msg[1], msg[2], false));
-                return("ACK 2");
+                m = new ServerMessage(12, 2, "");
             } else
-                return("ERROR 2");
+                m = new ServerMessage(13, 2, "");
         } else if (command.equals("LOGIN")) {
             //check if student is registered
             if (db.getStudentList().containsKey(msg[1])) {
                 try {
                     db.getStudentList().get(msg[1]).logIn(msg[2]);
                     currStudent = db.getStudentList().get(msg[1]);
-                    return("ACK 3");
+                    m = new ServerMessage(12, 3, "");
                 } catch (Exception e) {
-                    return("ERROR 3");
+                    m = new ServerMessage(13, 3, "");
                 }
             } else
-                return("ERROR 3");
+                m = new ServerMessage(13, 3, "");
         } else if (command.equals("LOGOUT")) {
             //check if student is registered
             if (db.getStudentList().containsKey(msg[1])) {
                 try {
                     db.getStudentList().get(msg[1]).logout();
                     currStudent = null;
-                    return("ACK 4");
+                    m = new ServerMessage(12, 4, "");
                 } catch (Exception e) {
-                    return("ERROR 4");
+                    m = new ServerMessage(13, 4, "");
                 }
             } else
-                return("ERROR 4");
+                m = new ServerMessage(13, 4, "");
         } else if (command.equals("COURSEREG")) {
             if (currStudent == null || !db.getCourseList().containsKey(msg[1]) || !currStudent.isAdmin())
-                return("ERROR 5");
+                m = new ServerMessage(13, 5, "");
             else {
                 try {
                     currStudent.registerToCourse(db.getCourseList().get(msg[1]));
-                    return("ACK 5");
+                    m = new ServerMessage(12, 5, "");
                 } catch (Exception e) {
-                    return("ERROR 5");
+                    m = new ServerMessage(13, 5, "");
                 }
             }
         } else if (command.equals("KDAMCHECK")) {
             //todo check if unlogged user can do "kdamCourse"
             if (currStudent == null || !db.getCourseList().containsKey(msg[1]))
-                return("ERROR 6");
+                m = new ServerMessage(13, 6, "");
             else {
-                return("ACK 6");
-                //System.out.println(db.getCourseList().get(msg[1]).getKdamCourses());
+                m = new ServerMessage(12, 6, "");
             }
         } else if (command.equals("COURSESTAT")) {
             //todo check if unlogged user can do "kdamCourse"
             if (currStudent == null || !currStudent.isAdmin() || !db.getCourseList().containsKey(msg[1]))
-                return("ERROR 7");
+                m = new ServerMessage(13, 7, "");
             else {
-                return("ACK 7");
-                //System.out.println(db.getCourseList().get(msg[1]).courseStat());
+                m = new ServerMessage(12, 7, db.getCourseList().get(msg[1]).courseStat());
             }
         } else if (command.equals("STUDENTSTAT")) {
             //todo check if unlogged user can do "kdamCourse"
             if (currStudent == null || !currStudent.isAdmin())
-                return("ERROR 8");
+                m = new ServerMessage(13, 8, "");
             else {
-                return("ACK 8");
-                //System.out.println(db.getStudentList().get(msg[1]).studentStatus());
+                m = new ServerMessage(12, 8, db.getStudentList().get(msg[1]).studentStatus());
             }
         } else if (command.equals("ISREGISTERED")) {
             if (currStudent == null || !db.getCourseList().containsKey(msg[1]))
-                return("ERROR 9");
+                m = new ServerMessage(13, 9, "");
             else {
-                return("ACK 9");
-                //System.out.println(currStudent.isRegistered(db.getCourseList().get(msg[1])));
+                m = new ServerMessage(12, 9, currStudent.isRegistered(db.getCourseList().get(msg[1])));
             }
         } else if (command.equals("UNREGISTER")) {
             if (currStudent == null || !db.getCourseList().containsKey(msg[1]))
-                return("ERROR 10");
+                m = new ServerMessage(13, 10, "");
             else {
                 try {
                     currStudent.unregisterToCourse(db.getCourseList().get(msg[1]));
-                    return("ACK 10");
+                    m= new ServerMessage(12, 10, "");
                 } catch (Exception e) {
-                    return("ERROR 10");
+                    m= new ServerMessage(13, 10, "");
                 }
             }
         } else if(command.equals("MYCOURSES")){
             if(currStudent == null)
-                return("ERROR 11");
+                m= new ServerMessage(13, 11, "");
             else {
-                //System.out.println(currStudent.getRegisteredCourses());
-                return("ACK 11");
+                m = new ServerMessage(12, 11, "currStudent.getRegisteredCourses()"); //todo
             }
         }else{
-            return("ERROR");
+            m= new ServerMessage(13, -1, "");
         }
+
+        return m;
     }
+
 
 }

@@ -37,7 +37,7 @@ public class Student {
     //opcode: 5
     //todo add course num check before calling this function
     public void registerToCourse(Course course) throws Exception{
-        List<Course> kdamCourse = course.getKdamCourses();
+        List<String> kdamCourse = course.getKdamCourses();
         if(!finishedAllKdam(kdamCourse)) throw new Exception("missing kdam courses");
         course.register(this); //throws exception
         registeredCourses.add(course);
@@ -72,8 +72,8 @@ public class Student {
 
 
 
-    private boolean finishedAllKdam(List<Course> kdamCourse){
-        for(Course course: kdamCourse){
+    private boolean finishedAllKdam(List<String> kdamCourse){
+        for(String course: kdamCourse){
             if(!registeredCourses.contains(course))
                 return false;
         }
