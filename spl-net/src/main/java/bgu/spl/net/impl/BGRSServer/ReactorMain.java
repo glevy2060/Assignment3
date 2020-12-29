@@ -1,19 +1,42 @@
 package bgu.spl.net.impl.BGRSServer;
 
+import bgu.spl.net.api.MessageEncoderDecoder;
+import bgu.spl.net.api.MessagingProtocol;
 import bgu.spl.net.impl.Database;
+import bgu.spl.net.impl.echo.EncoderDecoder;
+import bgu.spl.net.impl.echo.MessageProtocol;
+import bgu.spl.net.srv.ActorThreadPool;
+import bgu.spl.net.srv.Reactor;
 
+import java.nio.channels.Selector;
 import java.nio.charset.StandardCharsets;
+import java.util.function.Supplier;
 
 public class ReactorMain {
 
     public static void main(String[] args) {
-        int n = (int) (Math.pow(2, 8) + 7);
+        final int port = 1000;
+        final Supplier<MessagingProtocol> protocolFactory=new Supplier<MessagingProtocol>() {
+            @Override
+            public MessagingProtocol<String> get(){return new MessageProtocol();}
+            };
+        final Supplier<MessageEncoderDecoder<String>> readerFactory=new Supplier<MessageEncoderDecoder<String>>() {
+            @Override
+            public MessageEncoderDecoder<String> get() {
+                return new EncoderDecoder();
+            }
+        };
+
+        Reactor reactor = new Reactor(10, port, protocolFactory, readerFactory);
+        reactor.serve();
+
+        /*int n = (int) (Math.pow(2, 8) + 7);
         byte[] b = new byte[2];
         b[0] = (byte)((n >> 8) & 0xFF);
         b[1] = (byte)((n) & 0xFF);
         System.out.println(b[0] +" " +b[1]);
 
-        String s11 = "09";
+        String s11 = "9\0";
         byte[] s1 = s11.getBytes(StandardCharsets.UTF_8);
 
         String s12 = "9";
@@ -28,7 +51,7 @@ public class ReactorMain {
         System.out.println("w");
 
         Database db = Database.getInstance();
-        int n1= 0;
+        int n1= 0;*/
 
     }
 }

@@ -15,7 +15,9 @@ public class ServerMessage {
     }
 
     public String toString(){
-        return messageOpcode+opcode+msg.length()+"$"+msg;
+        if(messageOpcode.equals("12"))
+            msg = msg + "/0";
+        return messageOpcode+opcode+msg;
     }
 
 

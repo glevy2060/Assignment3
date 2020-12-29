@@ -44,4 +44,8 @@ public class Course {
         toReturn = toReturn +"]";
         return toReturn;
     }
+
+    public String getCourseNum() {
+        return courseNum;
+    }
 }

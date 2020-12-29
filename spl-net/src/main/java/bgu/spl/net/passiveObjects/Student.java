@@ -84,8 +84,13 @@ public class Student {
         return user;
     }
 
-    public List<Course> getRegisteredCourses() {
-        return registeredCourses;
+    //returning as: [num,num,num]
+    public String getRegisteredCourses() {
+        String s = "[";
+        for (Course c: registeredCourses)
+            s = s + c.getCourseNum()+",";
+        s = s.substring(0, s.length()-1);
+        return s +"]";
     }
 
     public boolean isAdmin() {
