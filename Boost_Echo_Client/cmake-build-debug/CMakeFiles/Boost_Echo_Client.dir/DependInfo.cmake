@@ -4,8 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client/src/connectionHandler.cpp" "/mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o"
-  "/mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client/src/echoClient.cpp" "/mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/echoClient.cpp.o"
+  "/home/spl211/Assignment3/Boost_Echo_Client/src/BGRSclient.cpp" "/home/spl211/Assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o"
+  "/home/spl211/Assignment3/Boost_Echo_Client/src/connectionHandler.cpp" "/home/spl211/Assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o"
+  "/home/spl211/Assignment3/Boost_Echo_Client/src/echoClient.cpp" "/home/spl211/Assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/echoClient.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

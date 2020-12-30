@@ -1,26 +1,40 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client
-CMake Warning at /usr/share/cmake-3.16/Modules/FindBoost.cmake:2020 (message):
+/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/spl211/Assignment3/Boost_Echo_Client
+CMake Warning at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2007 (message):
   No header defined for *boost; skipping header check (note: header-only
   libraries have no designated component)
 Call Stack (most recent call first):
-  CMakeLists.txt:6 (find_package)
+  CMakeLists.txt:7 (find_package)
 
 
-CMake Warning at /usr/share/cmake-3.16/Modules/FindBoost.cmake:2020 (message):
-  No header defined for libraries; skipping header check (note: header-only
-  libraries have no designated component)
+CMake Error at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579 (if):
+  Syntax error in cmake code at
+
+    /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579
+
+  when parsing string
+
+    ${Boost_*BOOST_LIBRARY_RELEASE}
+
+  Invalid character ('*') in a variable name: 'Boost_'
 Call Stack (most recent call first):
-  CMakeLists.txt:6 (find_package)
+  /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2126 (_Boost_ADJUST_LIB_VARS)
+  CMakeLists.txt:7 (find_package)
 
 
-CMake Warning at /usr/share/cmake-3.16/Modules/FindBoost.cmake:2020 (message):
-  No header defined for here*; skipping header check (note: header-only
-  libraries have no designated component)
+CMake Error at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579 (if):
+  Syntax error in cmake code at
+
+    /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579
+
+  when parsing string
+
+    ${Boost_*BOOST_LIBRARY_DEBUG}
+
+  Invalid character ('*') in a variable name: 'Boost_'
 Call Stack (most recent call first):
-  CMakeLists.txt:6 (find_package)
+  /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2126 (_Boost_ADJUST_LIB_VARS)
+  CMakeLists.txt:7 (find_package)
 
 
--- Could NOT find Boost (missing: Boost_INCLUDE_DIR *boost libraries here*) (Required is at least version "1.45.0")
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client/cmake-build-debug
+-- Configuring incomplete, errors occurred!
+See also "/home/spl211/Assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/CMakeOutput.log".

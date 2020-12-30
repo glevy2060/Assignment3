@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 project(Boost_Echo_Client)
+
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
@@ -12,10 +13,11 @@ if(Boost_FOUND)
 endif()
 
 set(CMAKE_CXX_STANDARD 14)
-
+link_libraries("-lboost_system")
+link_libraries("-pthread")
 include_directories(include)
 
 add_executable(Boost_Echo_Client
         include/connectionHandler.h
         src/connectionHandler.cpp
-        src/echoClient.cpp)
+        src/echoClient.cpp include/encoderDecoder.h src/BGRSclient.cpp)
