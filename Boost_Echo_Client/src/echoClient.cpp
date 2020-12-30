@@ -24,8 +24,9 @@ int main (int argc, char *argv[]) {
         char buf[bufsize];
         std::cin.getline(buf, bufsize);
 		std::string line(buf);
+		//decode the lint to bytes[]
 		int len=line.length();
-        if (!connectionHandler.sendLine(line)) {
+        if (!connectionHandler.sendLine(line)) { //change sendLine to sendByte()
             std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
         }
@@ -37,7 +38,8 @@ int main (int argc, char *argv[]) {
         // 1. Read a fixed number of characters
         // 2. Read a line (up to the newline character using the getline() buffered reader
         // 3. Read up to the null character
-        std::string answer;
+        std::string answer; //
+
         // Get back an answer: by using the expected number of bytes (len bytes + newline delimiter)
         // We could also use: connectionHandler.getline(answer) and then get the answer without the newline char at the end
         if (!connectionHandler.getLine(answer)) {

@@ -1,0 +1,26 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client
+CMake Warning at /usr/share/cmake-3.16/Modules/FindBoost.cmake:2020 (message):
+  No header defined for *boost; skipping header check (note: header-only
+  libraries have no designated component)
+Call Stack (most recent call first):
+  CMakeLists.txt:6 (find_package)
+
+
+CMake Warning at /usr/share/cmake-3.16/Modules/FindBoost.cmake:2020 (message):
+  No header defined for libraries; skipping header check (note: header-only
+  libraries have no designated component)
+Call Stack (most recent call first):
+  CMakeLists.txt:6 (find_package)
+
+
+CMake Warning at /usr/share/cmake-3.16/Modules/FindBoost.cmake:2020 (message):
+  No header defined for here*; skipping header check (note: header-only
+  libraries have no designated component)
+Call Stack (most recent call first):
+  CMakeLists.txt:6 (find_package)
+
+
+-- Could NOT find Boost (missing: Boost_INCLUDE_DIR *boost libraries here*) (Required is at least version "1.45.0")
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /mnt/c/Users/glevy/OneDrive/Documents/SPL/Assignment3/Boost_Echo_Client/cmake-build-debug
