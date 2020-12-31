@@ -1,15 +1,29 @@
-/snap/clion/137/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/spl211/Assignment3/Boost_Echo_Client
-CMake Warning at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2007 (message):
+/snap/clion/138/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/spl211/Assignment3/Boost_Echo_Client
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc - works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ - works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning at /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2007 (message):
   No header defined for *boost; skipping header check (note: header-only
   libraries have no designated component)
 Call Stack (most recent call first):
   CMakeLists.txt:7 (find_package)
 
 
-CMake Error at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579 (if):
+CMake Error at /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579 (if):
   Syntax error in cmake code at
 
-    /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579
+    /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579
 
   when parsing string
 
@@ -17,14 +31,14 @@ CMake Error at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoos
 
   Invalid character ('*') in a variable name: 'Boost_'
 Call Stack (most recent call first):
-  /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2126 (_Boost_ADJUST_LIB_VARS)
+  /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2126 (_Boost_ADJUST_LIB_VARS)
   CMakeLists.txt:7 (find_package)
 
 
-CMake Error at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579 (if):
+CMake Error at /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579 (if):
   Syntax error in cmake code at
 
-    /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579
+    /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:579
 
   when parsing string
 
@@ -32,7 +46,7 @@ CMake Error at /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoos
 
   Invalid character ('*') in a variable name: 'Boost_'
 Call Stack (most recent call first):
-  /snap/clion/137/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2126 (_Boost_ADJUST_LIB_VARS)
+  /snap/clion/138/bin/cmake/linux/share/cmake-3.17/Modules/FindBoost.cmake:2126 (_Boost_ADJUST_LIB_VARS)
   CMakeLists.txt:7 (find_package)
 
 

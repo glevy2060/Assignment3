@@ -6,8 +6,11 @@
 */
 using namespace std;
 string twoSpacesCase(string line){
-    line = line.substr(line.find(" ") + 1);
-    line = line.replace(line.begin(), line.end(), " ", "/0");
+    std::cout << line << std::endl;
+    line = line.substr(line.find(" ") + 1, line.length());
+    std::cout << line << std::endl;
+    line = line.replace(line.begin(), line.end(), " ", "/0"); // todo FIX!!!!!
+    std::cout << line << std::endl;
     line += "/0";
     return line;
 }
@@ -20,59 +23,61 @@ string fourBytesCase(string line){
 //this method changes the user input to the required command;
 string getCommandInOpcode(string line){
     string op = line.substr(0, line.find(" "));
+    std::cout << op << std::endl;
+
     string toReturn = "";
-    if(op.compare("ADMINREG")) {
+    if(op.compare("ADMINREG") == 0) {
         toReturn += "01";
         toReturn += twoSpacesCase(line);
     }
-    if(op.compare("STUDENTREG")){
+    if(op.compare("STUDENTREG") == 0){
         toReturn += "02";
         toReturn += twoSpacesCase(line);
     }
-    if(op.compare("LOGIN")){
+    if(op.compare("LOGIN") == 0){
         toReturn += "03";
         toReturn += twoSpacesCase(line);
-    }if(op.compare("LOGOUT")){
+    }if(op.compare("LOGOUT") == 0){
         toReturn = "04";
     }
-    if(op.compare("COURSEREG")){
+    if(op.compare("COURSEREG") == 0){
         toReturn = "05";
         toReturn += fourBytesCase(line);
     }
-    if(op.compare("KDAMCHECK")){
+    if(op.compare("KDAMCHECK") == 0){
         toReturn = "o6";
         toReturn += fourBytesCase(line);
     }
-    if(op.compare("COURSESTAT")){
+    if(op.compare("COURSESTAT") == 0){
         toReturn = "07";
         toReturn += fourBytesCase(line);
     }
-    if(op.compare("STUDENTSTAT")){
+    if(op.compare("STUDENTSTAT") == 0){
         toReturn = "08";
         toReturn += line.substr(line.find(" ") + 1) + "/0";
     }
-    if(op.compare("ISREGISTERED")){
+    if(op.compare("ISREGISTERED") == 0){
         toReturn = "09";
         toReturn += fourBytesCase(line);
     }
-    if(op.compare("UNREGISTER")){
+    if(op.compare("UNREGISTER") == 0){
         toReturn = "10";
         toReturn += fourBytesCase(line);
     }
-    if(op.compare("MYCOURSES")){
+    if(op.compare("MYCOURSES") == 0){
         toReturn = "11";
     }
+    std::cout << "THIS IS TORETURN " +toReturn << std::endl;
     return toReturn;
 
 }
-
 int main (int argc, char *argv[]) {
-    if (argc < 3) {
+/*    if (argc < 3) {
         std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
         return -1;
-    }
-    std::string host = argv[1];
-    short port = atoi(argv[2]); //server port
+    }*/
+    std::string host = "0.0.0.0"; // argv[1];
+    short port = atoi("7777");//(argv[2]); //server port
 
     ConnectionHandler connectionHandler(host, port);
     if (!connectionHandler.connect()) {
@@ -86,14 +91,19 @@ int main (int argc, char *argv[]) {
         char buf[bufsize];
         std::cin.getline(buf, bufsize);
         std::string line(buf);
+        std::cout << line << std::endl;
         //decode the lint to bytes[]
+
         line = getCommandInOpcode(line);
         int len=line.length();
+        std::cout << line << std::endl;
+
         if (!connectionHandler.sendBytes(line.c_str(), len)) { //change sendLine to sendByte()
             std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
         }
         // connectionHandler.sendLine(line) appends '\n' to the message. Therefor we send len+1 bytes.
+        std::cout << line << std::endl;
         std::cout << "Sent " << len+1 << " bytes to server" << std::endl;
 
 

@@ -47,7 +47,8 @@ public:
 	
     // Close down the connection properly.
     void close();
- 
+
+    bool getFrame(std::string &frame);
 }; //class ConnectionHandler
  
 #endif

@@ -70,6 +70,31 @@ bool ConnectionHandler::getLine(std::string& line) {
 bool ConnectionHandler::sendLine(std::string& line) {
     return sendFrameAscii(line, '\n');
 }
+
+bool ConnectionHandler::getFrame(string& frame){
+    std::cerr << "get Frame Started " ;
+    char ch;
+    int len =0;
+    try{
+        do{
+            if(!getBytes(&ch,1))
+                return false;
+            frame.append(1, ch);
+            len ++;
+            if(len > 2){
+                if(frame[1] == '3' & len == 4){
+                    break;
+                }
+            }
+        } while(ch != '/0');
+    } catch (std::exception& e) {
+        std::cerr << "recv failed2 (Error: " << e.what() << ')' << std::endl;
+        return false;
+    }
+    std::cerr << frame ;
+
+    return true;
+}
  
 
 bool ConnectionHandler::getFrameAscii(std::string& frame, char delimiter) {
