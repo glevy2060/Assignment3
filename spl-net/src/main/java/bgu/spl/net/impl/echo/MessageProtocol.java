@@ -10,11 +10,11 @@ public class MessageProtocol implements MessagingProtocol<String> {
 
     @Override
     public String process(String msg) {
-
+        System.out.println("starting to process the message " + msg);
         String command = msg.substring(0,2);
         String details = msg.substring(2);
-        msg = command + "\0" + details;
-        return act(msg.split("\0"));
+        msg = command + " " + details;
+        return act(msg.split(" "));
     }
 
     @Override
@@ -119,7 +119,7 @@ public class MessageProtocol implements MessagingProtocol<String> {
         }else{
             m= new ServerMessage(13, -1, "");
         }
-
+        System.out.println("this is is the msg after act method "+ m.toString());
         return m.toString();
     }
 

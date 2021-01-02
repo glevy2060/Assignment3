@@ -2,6 +2,7 @@ package bgu.spl.net.impl.echo;
 
 import bgu.spl.net.api.MessageEncoderDecoder;
 import bgu.spl.net.passiveObjects.ServerMessage;
+import jdk.nashorn.internal.runtime.regexp.joni.constants.OPCode;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
@@ -16,6 +17,7 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
     @Override
     public String decodeNextByte(byte nextByte) {
         // opcode check and set all relevant parameters
+
         if(len == 2){
             popOpCode();
         }
@@ -26,10 +28,15 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
         if(numOfBytesRemaining > 0 && zeroCounter ==0)
             numOfBytesRemaining--;
 
-        if(nextByte == '\0')
-            zeroCounter --;
-
-        pushByte(nextByte);
+        if(nextByte == '\0' & len > 2) {
+            zeroCounter--;
+            if(zeroCounter > 0)
+                pushByte((byte)(32));
+            if(zeroCounter == 0) {
+                return popString();
+            }
+        }else
+            pushByte(nextByte);
         return null; //not a line yet
     }
 
@@ -50,14 +57,16 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
     }
 
     private String popString() {
-        String result = new String(bytes, 2, len, StandardCharsets.UTF_8);
-
+        String result = opcode;
+        result += new String(bytes, 0, len, StandardCharsets.UTF_8);
         len = 0;
         return result;
     }
 
     private void popOpCode(){
-        opcode = new String(bytes, 0, 2, StandardCharsets.UTF_8);
+        short op1 = (short) (bytes[0] & 0xff);
+        short op2 = (short)(bytes[1] & 0xff);
+        opcode = "" +op1 + op2;
         setZeroCounter();
     }
 

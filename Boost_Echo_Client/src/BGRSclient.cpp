@@ -5,70 +5,92 @@
 * This code assumes that the server replies the exact text the client sent it (as opposed to the practical session example)
 */
 using namespace std;
-string twoSpacesCase(string line){
-    std::cout << line << std::endl;
+int twoSpacesCase(string line, char *lineAsChar){
     line = line.substr(line.find(" ") + 1, line.length());
-    std::cout << line << std::endl;
-    line = line.replace(line.begin(), line.end(), " ", "/0"); // todo FIX!!!!!
-    std::cout << line << std::endl;
-    line += "/0";
-    return line;
+    for(int i=2;i<line.length()+2;i++){
+        if(line[i-2]!=' ')
+            lineAsChar[i]=line[i-2];
+        else
+            lineAsChar[i]='\0';
+    }
+    lineAsChar[line.length()+2] = '\0';
+    return line.length()+3;
 }
 
-string fourBytesCase(string line){
+int fourBytesCase(string line, char* lineAsChar){
     line = line.substr(line.find(" ")+1);
-    return line;
+    for(int i = 2; i < line.length()+2; i++){
+        lineAsChar[i]=line[i-2];
+    }
+    return 4;
 }
 
 //this method changes the user input to the required command;
-string getCommandInOpcode(string line){
+int getCommandInOpcode(string line , char *lineAsChar){
     string op = line.substr(0, line.find(" "));
-    std::cout << op << std::endl;
 
     string toReturn = "";
     if(op.compare("ADMINREG") == 0) {
-        toReturn += "01";
-        toReturn += twoSpacesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 1;
+        return twoSpacesCase(line,lineAsChar);
     }
     if(op.compare("STUDENTREG") == 0){
-        toReturn += "02";
-        toReturn += twoSpacesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 2;
+        return twoSpacesCase(line,lineAsChar);
     }
     if(op.compare("LOGIN") == 0){
-        toReturn += "03";
-        toReturn += twoSpacesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 3;
+        return twoSpacesCase(line,lineAsChar);
     }if(op.compare("LOGOUT") == 0){
-        toReturn = "04";
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 4;
+        return 2;
     }
     if(op.compare("COURSEREG") == 0){
-        toReturn = "05";
-        toReturn += fourBytesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 5;
+        return fourBytesCase(line, lineAsChar);
     }
     if(op.compare("KDAMCHECK") == 0){
-        toReturn = "o6";
-        toReturn += fourBytesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 6;
+        return fourBytesCase(line, lineAsChar);
     }
     if(op.compare("COURSESTAT") == 0){
-        toReturn = "07";
-        toReturn += fourBytesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 7;
+        return fourBytesCase(line, lineAsChar);
     }
     if(op.compare("STUDENTSTAT") == 0){
-        toReturn = "08";
-        toReturn += line.substr(line.find(" ") + 1) + "/0";
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 8;
+        line = line.substr(line.find(" ") + 1);
+        for(int i= 2; i< line.length() +2; i++){
+            lineAsChar[i]=line[i-2];
+        }
+        lineAsChar[line.length()+2] = '\0';
+        return line.length()+3;
     }
     if(op.compare("ISREGISTERED") == 0){
-        toReturn = "09";
-        toReturn += fourBytesCase(line);
+        lineAsChar[0] = 0;
+        lineAsChar[1] = 9;
+        return fourBytesCase(line, lineAsChar);
     }
     if(op.compare("UNREGISTER") == 0){
-        toReturn = "10";
-        toReturn += fourBytesCase(line);
+        lineAsChar[0] = 1;
+        lineAsChar[1] = 0;
+        return fourBytesCase(line, lineAsChar);
     }
     if(op.compare("MYCOURSES") == 0){
-        toReturn = "11";
+        lineAsChar[0] = 1;
+        lineAsChar[1] = 1;
+        return 2;
     }
-    std::cout << "THIS IS TORETURN " +toReturn << std::endl;
-    return toReturn;
+
+    return -1;
 
 }
 int main (int argc, char *argv[]) {
@@ -94,17 +116,17 @@ int main (int argc, char *argv[]) {
         std::cout << line << std::endl;
         //decode the lint to bytes[]
 
-        line = getCommandInOpcode(line);
-        int len=line.length();
+        char lineAsChar[line.length()];
+        int len= getCommandInOpcode(line,lineAsChar);
         std::cout << line << std::endl;
 
-        if (!connectionHandler.sendBytes(line.c_str(), len)) { //change sendLine to sendByte()
+        if (!connectionHandler.sendBytes(lineAsChar, len)) { //change sendLine to sendByte()
             std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
         }
         // connectionHandler.sendLine(line) appends '\n' to the message. Therefor we send len+1 bytes.
         std::cout << line << std::endl;
-        std::cout << "Sent " << len+1 << " bytes to server" << std::endl;
+        std::cout << "Sent " << len << " bytes to server" << std::endl;
 
 
         // We can use one of three options to read data from the server:
@@ -119,7 +141,7 @@ int main (int argc, char *argv[]) {
             std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
         }
-
+        std::cout << answer << std::endl;
         len=answer.length();
         // A C string must end with a 0 char delimiter.  When we filled the answer buffer from the socket
         // we filled up to the \n char - we must make sure now that a 0 char is also present. So we truncate last character.
