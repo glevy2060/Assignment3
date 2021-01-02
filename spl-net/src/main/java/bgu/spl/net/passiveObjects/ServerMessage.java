@@ -1,8 +1,8 @@
 package bgu.spl.net.passiveObjects;
 
 public class ServerMessage {
-    protected int opcode;
-    protected String messageOpcode;
+    protected int opcode; //ERROR OR ACK
+    protected String messageOpcode; // MEASSAGE RELATED
     protected String msg;
 
     public ServerMessage(int opcode, int messageOpcode, String msg){
@@ -15,9 +15,7 @@ public class ServerMessage {
     }
 
     public String toString(){
-        if(messageOpcode.equals("12"))
-            msg = msg + "/0";
-        return messageOpcode+opcode+msg;
+        return opcode+messageOpcode+msg;
     }
 
 

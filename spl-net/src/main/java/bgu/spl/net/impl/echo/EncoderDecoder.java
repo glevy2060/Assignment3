@@ -42,7 +42,17 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
 
     @Override
     public byte[] encode(String message) {
-        return message.getBytes(StandardCharsets.UTF_8);
+        if(message.substring(0, 2).equals("12")) {
+            byte[] bytes = new byte[message.length() + 1];
+            bytes[message.length()] = (byte)('\0');
+            for(int i =0; i<message.length(); i++){
+                bytes[i] = (byte)message.charAt(i);
+            }
+            return bytes;
+        } else{
+            return message.getBytes(StandardCharsets.UTF_8);
+        }
+
         //first 2 bytes represent the opcode of ERROR/ACK
         //second two bytes represent the commant opcode (1-11)
         //message length until $
@@ -58,7 +68,7 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
 
     private String popString() {
         String result = opcode;
-        result += new String(bytes, 0, len, StandardCharsets.UTF_8);
+        result += new String(bytes, 2, len, StandardCharsets.UTF_8);
         len = 0;
         return result;
     }
