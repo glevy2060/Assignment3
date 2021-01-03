@@ -5,9 +5,9 @@
 #include <connectionHandler.h>
 #include "Task.h"
 using namespace std;
-Task::Task(std::mutex &mutex, string host, short port): _mutex(mutex), _host(host), _port(port);
+Task::Task(std::mutex &mutex, string host, short port): _mutex(mutex), _host(host), _port(port){};
 
-int twoSpacesCase(string line, char *lineAsChar){
+int Task::twoSpacesCase(string line, char *lineAsChar){
     line = line.substr(line.find(" ") + 1, line.length());
     for(int i=2;i<line.length()+2;i++){
         if(line[i-2]!=' ')
@@ -19,7 +19,7 @@ int twoSpacesCase(string line, char *lineAsChar){
     return line.length()+3;
 }
 
-int fourBytesCase(string line, char* lineAsChar){
+int Task::fourBytesCase(string line, char* lineAsChar){
     line = line.substr(line.find(" ")+1);
     for(int i = 2; i < line.length()+2; i++){
         lineAsChar[i]=line[i-2];
@@ -28,7 +28,7 @@ int fourBytesCase(string line, char* lineAsChar){
 }
 
 //this method changes the user input to the required command;
-int getCommandInOpcode(string line , char *lineAsChar){
+int Task::getCommandInOpcode(string line , char *lineAsChar){
     string op = line.substr(0, line.find(" "));
     string toReturn = "";
     if(op.compare("ADMINREG") == 0) {
@@ -111,7 +111,7 @@ void Task::run() {
         //decode the lint to bytes[]
 
         char lineAsChar[line.length()];
-        int len= getCommandInOpcode(line,lineAsChar);
+        int len= getCommandInOpcode(line, lineAsChar);
         std::cout << line << std::endl;
 
         if (!connectionHandler.sendBytes(lineAsChar, len)) { //change sendLine to sendByte()

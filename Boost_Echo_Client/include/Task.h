@@ -13,6 +13,7 @@ private:
     std::mutex & _mutex;
     string _host;
     short _port;
+    ConnectionHandler connectionHandler;
 
 public:
     Task(mutex &mutex, basic_string<char> host, short port);

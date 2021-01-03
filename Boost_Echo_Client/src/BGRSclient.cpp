@@ -31,10 +31,9 @@ int main (int argc, char *argv[]) {
     std::string host = "0.0.0.0"; // argv[1];
     short port = atoi("7777");//(argv[2]); //server port
     mutex mutex;
+    ConnectionHandler connectionHandler(host, port);
     Task sendsToServer(mutex, host, port);
     thread taskThread(&Task::run, &sendsToServer);
-
-    ConnectionHandler connectionHandler(host, port);
     if (!connectionHandler.connect()) {
         std::cerr << "Cannot connect to " << host << ":" << port << std::endl;
         return 1;
@@ -55,7 +54,7 @@ int main (int argc, char *argv[]) {
             std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
         }
-        len=answer.length();
+        int len=answer.length();
         // A C string must end with a 0 char delimiter.  When we filled the answer buffer from the socket
         // we filled up to the \n char - we must make sure now that a 0 char is also present. So we truncate last character.
         answer.resize(len-1);
