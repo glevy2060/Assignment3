@@ -86,13 +86,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/include/Task.h">
+			<Option target="Boost_Echo_Client"/>
+		</Unit>
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/include/connectionHandler.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/include/encoderDecoder.h">
+		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/BGRSclient.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/BGRSclient.cpp">
+		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/Task.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/connectionHandler.cpp">

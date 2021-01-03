@@ -20,4 +20,4 @@ include_directories(include)
 add_executable(Boost_Echo_Client
         include/connectionHandler.h
         src/connectionHandler.cpp
-        src/echoClient.cpp include/encoderDecoder.h src/BGRSclient.cpp)
+        src/echoClient.cpp src/BGRSclient.cpp src/Task.cpp include/Task.h)

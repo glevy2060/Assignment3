@@ -22,7 +22,7 @@ public class Student {
     //opcode: 3
     //todo throw the error opcode
     public void logIn(String password) throws Exception{
-        if(this.password != password) throw new Exception("incorrect password");
+        if(!this.password.equals(password)) throw new Exception("incorrect password");
         if(isLoggedIn) throw new Exception("user already logged in");
         isLoggedIn = true;
     }
@@ -46,10 +46,11 @@ public class Student {
     //opcode: 8
     // todo: print course num and not course object
     public String studentStatus(){
-        String toReturn = "Student: " + user +"/n"+ "Courses: [";
+        String toReturn = "\n" + "Student: " + user +"\n"+ "Courses: [";
         for(Course c: registeredCourses)
             toReturn = toReturn + c + ",";
-        toReturn = toReturn.substring(0, toReturn.length()-1);
+        if(registeredCourses.size()>0)
+            toReturn = toReturn.substring(0, toReturn.length()-1);
         toReturn = toReturn + "]";
         return toReturn;
     }
@@ -89,7 +90,8 @@ public class Student {
         String s = "[";
         for (Course c: registeredCourses)
             s = s + c.getCourseNum()+",";
-        s = s.substring(0, s.length()-1);
+        if(registeredCourses.size()>0)
+            s = s.substring(0, s.length()-1);
         return s +"]";
     }
 

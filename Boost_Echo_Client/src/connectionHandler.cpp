@@ -72,7 +72,7 @@ bool ConnectionHandler::sendLine(std::string& line) {
 }
 
 bool ConnectionHandler::getFrame(string& frame){
-    std::cerr << "get Frame Started " ;
+    //std::cerr << "get Frame Started " ;
     char ch;
     int len =0;
     try{
@@ -91,7 +91,7 @@ bool ConnectionHandler::getFrame(string& frame){
         std::cerr << "recv failed2 (Error: " << e.what() << ')' << std::endl;
         return false;
     }
-    std::cerr << frame <<;
+
 
     return true;
 }

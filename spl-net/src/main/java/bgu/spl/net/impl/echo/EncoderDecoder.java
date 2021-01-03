@@ -18,6 +18,16 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
     public String decodeNextByte(byte nextByte) {
         // opcode check and set all relevant parameters
 
+        if(nextByte == '\0' & len > 2) {
+            zeroCounter--;
+            if(zeroCounter > 0)
+                pushByte((byte)(32));
+            if(zeroCounter == 0) {
+                return popString();
+            }
+        }else
+            pushByte(nextByte);
+
         if(len == 2){
             popOpCode();
         }
@@ -28,15 +38,6 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
         if(numOfBytesRemaining > 0 && zeroCounter ==0)
             numOfBytesRemaining--;
 
-        if(nextByte == '\0' & len > 2) {
-            zeroCounter--;
-            if(zeroCounter > 0)
-                pushByte((byte)(32));
-            if(zeroCounter == 0) {
-                return popString();
-            }
-        }else
-            pushByte(nextByte);
         return null; //not a line yet
     }
 
@@ -68,8 +69,9 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
 
     private String popString() {
         String result = opcode;
-        result += new String(bytes, 2, len, StandardCharsets.UTF_8);
+        result += new String(bytes, 2, len-2, StandardCharsets.UTF_8);
         len = 0;
+        zeroCounter = 10;
         return result;
     }
 

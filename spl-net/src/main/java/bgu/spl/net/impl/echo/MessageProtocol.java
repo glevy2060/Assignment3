@@ -51,9 +51,9 @@ public class MessageProtocol implements MessagingProtocol<String> {
                 m = new ServerMessage(13, 3, "");
         } else if (command.equals("04")) {
             //check if student is registered
-            if (db.getStudentList().containsKey(msg[1])) {
+            if (currStudent!=null) {
                 try {
-                    db.getStudentList().get(msg[1]).logout();
+                    currStudent.logout();
                     currStudent = null;
                     m = new ServerMessage(12, 4, "");
                 } catch (Exception e) {
