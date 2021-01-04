@@ -7,16 +7,19 @@
 #include <iostream>
 #include <mutex>
 #include <thread>
+#include "connectionHandler.h"
+
 using namespace std;
 class Task {
 private:
     std::mutex & _mutex;
     string _host;
     short _port;
-    ConnectionHandler connectionHandler;
+    ConnectionHandler &connectionHandler;
+    bool &flag;
 
 public:
-    Task(mutex &mutex, basic_string<char> host, short port);
+    Task(mutex &mutex, ConnectionHandler &connectionHandler,bool &flag);
     int twoSpacesCase(string line, char *lineAsChar);
     int fourBytesCase(string line, char* lineAsChar);
     int getCommandInOpcode(string line , char *lineAsChar);

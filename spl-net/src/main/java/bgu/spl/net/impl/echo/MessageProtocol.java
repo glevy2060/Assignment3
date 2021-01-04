@@ -39,12 +39,13 @@ public class MessageProtocol implements MessagingProtocol<String> {
                 m = new ServerMessage(13, 2, "");
         } else if (command.equals("03")) {
             //check if student is registered
-            if (db.getStudentList().containsKey(msg[1])) {
+            if (db.getStudentList().containsKey(msg[1]) && currStudent == null) {
                 try {
                     db.getStudentList().get(msg[1]).logIn(msg[2]);
                     currStudent = db.getStudentList().get(msg[1]);
                     m = new ServerMessage(12, 3, "");
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     m = new ServerMessage(13, 3, "");
                 }
             } else
@@ -57,6 +58,7 @@ public class MessageProtocol implements MessagingProtocol<String> {
                     currStudent = null;
                     m = new ServerMessage(12, 4, "");
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     m = new ServerMessage(13, 4, "");
                 }
             } else
@@ -69,6 +71,7 @@ public class MessageProtocol implements MessagingProtocol<String> {
                     currStudent.registerToCourse(db.getCourseList().get(msg[1]));
                     m = new ServerMessage(12, 5, "");
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     m = new ServerMessage(13, 5, "");
                 }
             }
@@ -107,6 +110,7 @@ public class MessageProtocol implements MessagingProtocol<String> {
                     currStudent.unregisterToCourse(db.getCourseList().get(msg[1]));
                     m= new ServerMessage(12, 10, "");
                 } catch (Exception e) {
+                    System.out.println(e.getMessage());
                     m= new ServerMessage(13, 10, "");
                 }
             }

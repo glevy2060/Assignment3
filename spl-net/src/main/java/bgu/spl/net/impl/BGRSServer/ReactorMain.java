@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 public class ReactorMain {
 
     public static void main(String[] args) {
-        final int port = 1000;
+        final int port = 7777;
         final Supplier<MessagingProtocol> protocolFactory=new Supplier<MessagingProtocol>() {
             @Override
             public MessagingProtocol<String> get(){return new MessageProtocol();}

@@ -18,12 +18,12 @@ public class Course {
         this.listOfStudents = new ArrayList<>();
     }
 
-    public void register(Student student) throws Exception {
+    public synchronized void register(Student student) throws Exception {
         if(numOfMaxStudent == listOfStudents.size()) throw new Exception("course is full");
         listOfStudents.add(student);
     }
 
-    public void unregister(Student student) {
+    public synchronized void unregister(Student student) {
         listOfStudents.remove(student);
     }
 
@@ -33,14 +33,15 @@ public class Course {
     }
 
     //opcode:7
-    public String courseStat(){
-        String toReturn =  "Course:(" +courseNum +") "+ courseName +"/n"
-                +"Seats Available:" + listOfStudents.size()+"/"+numOfMaxStudent + "/n"+
+    public synchronized String courseStat(){
+        String toReturn =  "\nCourse:(" +courseNum +") "+ courseName +"\n"
+                +"Seats Available:" + listOfStudents.size()+"/"+numOfMaxStudent + "\n"+
                 "Students Registered:[";
         for (Student s: listOfStudents){
             toReturn = toReturn + s.getUser() +",";
         }
-        toReturn = toReturn.substring(0, toReturn.length()-1);
+        if(listOfStudents.size() > 0)
+            toReturn = toReturn.substring(0, toReturn.length()-1);
         toReturn = toReturn +"]";
         return toReturn;
     }

@@ -12,6 +12,3 @@ CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o: ../src/Task.cpp
 CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o: ../include/connectionHandler.h
 CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o: ../src/connectionHandler.cpp
 
-CMakeFiles/Boost_Echo_Client.dir/src/echoClient.cpp.o: ../include/connectionHandler.h
-CMakeFiles/Boost_Echo_Client.dir/src/echoClient.cpp.o: ../src/echoClient.cpp
-

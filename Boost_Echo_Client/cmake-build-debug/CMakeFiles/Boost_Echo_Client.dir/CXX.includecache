@@ -13,6 +13,8 @@ mutex
 -
 thread
 -
+connectionHandler.h
+../include/connectionHandler.h
 
 ../include/connectionHandler.h
 string
@@ -22,9 +24,13 @@ iostream
 boost/asio.hpp
 -
 
-/home/spl211/Assignment3/Boost_Echo_Client/src/Task.cpp
-connectionHandler.h
+/home/spl211/Assignment3/Boost_Echo_Client/src/BGRSclient.cpp
+stdlib.h
+-
+mutex
 -
 Task.h
-/home/spl211/Assignment3/Boost_Echo_Client/src/Task.h
+-
+connectionHandler.h
+-
 

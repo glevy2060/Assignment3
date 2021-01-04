@@ -2,11 +2,10 @@
 // Created by spl211 on 03/01/2021.
 //
 
-#include <connectionHandler.h>
+#include "connectionHandler.h"
 #include "Task.h"
 using namespace std;
-Task::Task(std::mutex &mutex, string host, short port): _mutex(mutex), _host(host), _port(port){};
-
+Task::Task(std::mutex &mutex, ConnectionHandler& connectionHandler,bool& flag): _mutex(mutex), connectionHandler(connectionHandler),flag(flag){};
 int Task::twoSpacesCase(string line, char *lineAsChar){
     line = line.substr(line.find(" ") + 1, line.length());
     for(int i=2;i<line.length()+2;i++){
@@ -21,9 +20,10 @@ int Task::twoSpacesCase(string line, char *lineAsChar){
 
 int Task::fourBytesCase(string line, char* lineAsChar){
     line = line.substr(line.find(" ")+1);
-    for(int i = 2; i < line.length()+2; i++){
-        lineAsChar[i]=line[i-2];
-    }
+    int num = atoi(line.c_str());
+    lineAsChar[2]=((num>>8)&0xFF);
+    lineAsChar[3]= (num&0xFF);
+
     return 4;
 }
 
@@ -96,30 +96,24 @@ int Task::getCommandInOpcode(string line , char *lineAsChar){
 }
 
 void Task::run() {
-    ConnectionHandler connectionHandler(_host, _port);
-
-    if (!connectionHandler.connect()) {
-        std::cerr << "sender thread Cannot connect to " << _host << ":" << _port << std::endl;
-        //todo check if we need to add terminate
-    }
 
     while(1){
         const short bufsize = 1024;
         char buf[bufsize];
-        std::cin.getline(buf, bufsize);
-        std::string line(buf);
-        //decode the lint to bytes[]
+        if(!flag) {
+            std::cin.getline(buf, bufsize);
+            std::string line(buf);
+            //decode the lint to bytes[]
+            if(line.compare("LOGOUT") == 0)
+                flag=true;
+            char lineAsChar[line.length()];
+            int len = getCommandInOpcode(line, lineAsChar);
 
-        char lineAsChar[line.length()];
-        int len= getCommandInOpcode(line, lineAsChar);
-        std::cout << line << std::endl;
-
-        if (!connectionHandler.sendBytes(lineAsChar, len)) { //change sendLine to sendByte()
-            std::cout << "Disconnected. Exiting...\n" << std::endl;
-            break;
+            //lock
+            if (!connectionHandler.sendBytes(lineAsChar, len)) { //change sendLine to sendByte()
+                std::cout << "Disconnected. Exiting...\n" << std::endl;
+                break;
+            }
         }
-        // connectionHandler.sendLine(line) appends '\n' to the message. Therefor we send len+1 bytes.
-        std::cout << "Sent " << len << " bytes to server" << std::endl;
-
     }
 }

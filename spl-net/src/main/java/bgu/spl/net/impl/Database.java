@@ -5,6 +5,7 @@ import bgu.spl.net.passiveObjects.Student;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Passive object representing the bgu.spl.net.impl.Database where all courses and users are stored.
@@ -24,8 +25,9 @@ public class Database {
 
 	//to prevent user from creating new bgu.spl.net.impl.Database
 	private Database() {
-		studentList = new HashMap<>();
-		courseList = new HashMap<>();
+		studentList = new ConcurrentHashMap<>();
+		courseList = new ConcurrentHashMap<>();
+		initialize("/home/spl211/Assignment3/spl-net/Courses");
 	}
 
 	/**

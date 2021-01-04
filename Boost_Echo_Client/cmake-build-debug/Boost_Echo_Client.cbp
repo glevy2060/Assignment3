@@ -101,9 +101,6 @@
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/connectionHandler.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/echoClient.cpp">
-			<Option target="Boost_Echo_Client"/>
-		</Unit>
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

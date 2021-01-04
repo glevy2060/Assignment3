@@ -13,6 +13,7 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
     private String opcode = "";
     private int zeroCounter = 10;
     private int numOfBytesRemaining = 0;
+    private boolean flag=false;
 
     @Override
     public String decodeNextByte(byte nextByte) {
@@ -69,9 +70,13 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
 
     private String popString() {
         String result = opcode;
-        result += new String(bytes, 2, len-2, StandardCharsets.UTF_8);
+        if(!flag)
+            result += new String(bytes, 2, len-2, StandardCharsets.UTF_8);
+        else 
+            result+=(short)((bytes[2]&0xff)<<8)+(short)(bytes[3]&0xff);
         len = 0;
         zeroCounter = 10;
+        flag=false;
         return result;
     }
 
@@ -89,6 +94,7 @@ public class EncoderDecoder implements MessageEncoderDecoder<String> {
             zeroCounter = 0;
         else if(opcode.equals("05") || opcode.equals("06") || opcode.equals("07")
                 || opcode.equals("09") || opcode.equals("10")) {
+            flag=true;
             zeroCounter = 0;
             numOfBytesRemaining = 2;
         }else if(opcode.equals("08"))
