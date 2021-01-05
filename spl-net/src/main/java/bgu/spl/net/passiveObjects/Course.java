@@ -49,4 +49,15 @@ public class Course {
     public String getCourseNum() {
         return courseNum;
     }
+
+    public String getKdamCoursesAsString(){
+        String toReturn = "\n[";
+        for(String s: kdamCourses){
+            toReturn += s+",";
+        }
+        if(kdamCourses.size() > 0)
+            toReturn = toReturn.substring(0, toReturn.length()-1);
+        return toReturn+"]";
+
+    }
 }

@@ -12,7 +12,6 @@ public class TPC extends BaseServer<String>{
 
     @Override
     protected void execute(BlockingConnectionHandler<String> handler) {
-        System.out.println("new thread was created");
         new Thread(handler).start();
     }
 }

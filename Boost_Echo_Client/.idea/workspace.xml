@@ -36,45 +36,13 @@
     <list default="true" id="0c367a95-eec4-4bdd-8c8a-13b7d018c606" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/Boost_Echo_Client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Boost_Echo_Client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/BGRSclient" beforeDir="false" afterPath="$PROJECT_DIR$/bin/BGRSclient" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/BGRSclient.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin/BGRSclient.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/connectionHandler.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin/connectionHandler.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/echoClient.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/echoClient.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Task.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Task.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/Task.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Task.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BGRSclient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/BGRSclient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/echoClient.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/Courses" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/Courses" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/ReactorMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/ReactorMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/echo/EncoderDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/echo/EncoderDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/echo/MessageProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/echo/MessageProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/passiveObjects/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/passiveObjects/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/ReactorMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/ReactorMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/Database$singeltonHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/Database$singeltonHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/echo/EncoderDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/echo/EncoderDecoder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/echo/MessageProtocol.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/echo/MessageProtocol.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/passiveObjects/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/passiveObjects/Course.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connectionHandler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/connectionHandler.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,11 +123,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.Boost_Echo_Client">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Boost_Echo_Client" TARGET_NAME="all" CONFIG_NAME="all" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -200,6 +163,8 @@
       <workItem from="1609755319447" duration="678000" />
       <workItem from="1609756098783" duration="5481000" />
       <workItem from="1609764535654" duration="1768000" />
+      <workItem from="1609778062221" duration="15000" />
+      <workItem from="1609863308604" duration="1608000" />
     </task>
     <servers />
   </component>

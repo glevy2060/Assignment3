@@ -10,7 +10,6 @@ public class MessageProtocol implements MessagingProtocol<String> {
 
     @Override
     public String process(String msg) {
-        System.out.println("starting to process the message " + msg);
         String command = msg.substring(0,2);
         String details = msg.substring(2);
         msg = command + " " + details;
@@ -26,14 +25,14 @@ public class MessageProtocol implements MessagingProtocol<String> {
         ServerMessage m = null;
         String command = msg[0];
         if (command.equals("01")) {
-            if (!db.getStudentList().containsKey(msg[1])) {
-                db.getStudentList().put(msg[1], new Student(msg[1], msg[2], true));
+            Student res = db.getStudentList().putIfAbsent(msg[1], new Student(msg[1], msg[2], true));
+            if (res == null) {
                 m = new ServerMessage(12, 1, "");
             } else
                 m = new ServerMessage(13, 1, "");
         } else if (command.equals("02")) {
-            if (!db.getStudentList().containsKey(msg[1])) {
-                db.getStudentList().put(msg[1], new Student(msg[1], msg[2], false));
+                Student res = db.getStudentList().putIfAbsent(msg[1], new Student(msg[1], msg[2], false));
+            if (res == null) {
                 m = new ServerMessage(12, 2, "");
             } else
                 m = new ServerMessage(13, 2, "");
@@ -80,11 +79,12 @@ public class MessageProtocol implements MessagingProtocol<String> {
             if (currStudent == null || !db.getCourseList().containsKey(msg[1]))
                 m = new ServerMessage(13, 6, "");
             else {
-                m = new ServerMessage(12, 6, "");
+                m = new ServerMessage(12, 6, db.getCourseList().get(msg[1]).getKdamCoursesAsString());
             }
         } else if (command.equals("07")) {
             //todo check if unlogged user can do "kdamCourse"
-            if (currStudent == null || !currStudent.isAdmin() || !db.getCourseList().containsKey(msg[1]))
+            //!currStudent.isAdmin() ||
+            if (currStudent == null || !currStudent.isAdmin() ||  !db.getCourseList().containsKey(msg[1]))
                 m = new ServerMessage(13, 7, "");
             else {
                 m = new ServerMessage(12, 7, db.getCourseList().get(msg[1]).courseStat());
@@ -123,7 +123,6 @@ public class MessageProtocol implements MessagingProtocol<String> {
         }else{
             m= new ServerMessage(13, -1, "");
         }
-        System.out.println("this is is the msg after act method "+ m.toString());
         return m.toString();
     }
 

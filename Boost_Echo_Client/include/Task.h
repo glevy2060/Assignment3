@@ -13,8 +13,6 @@ using namespace std;
 class Task {
 private:
     std::mutex & _mutex;
-    string _host;
-    short _port;
     ConnectionHandler &connectionHandler;
     bool &flag;
 

@@ -25,17 +25,17 @@ string answerReader(string answer){
 }
 
 int main (int argc, char *argv[]) {
-/*    if (argc < 3) {
+    if (argc < 3) {
         std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
         return -1;
-    }*/
-/*
+    }
     std::string host = argv[1];
     short port = atoi(argv[2]); //server port
-*/
 
+/*
     std::string host = "0.0.0.0";
     short port = atoi("7777"); //server port
+*/
 
     bool flag=false;
     mutex mutex;
