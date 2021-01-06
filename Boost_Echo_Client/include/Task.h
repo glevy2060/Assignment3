@@ -15,6 +15,7 @@ private:
     std::mutex & _mutex;
     ConnectionHandler &connectionHandler;
     bool &flag;
+    bool stopRun;
 
 public:
     Task(mutex &mutex, ConnectionHandler &connectionHandler,bool &flag);
@@ -22,7 +23,7 @@ public:
     int fourBytesCase(string line, char* lineAsChar);
     int getCommandInOpcode(string line , char *lineAsChar);
     void run ();
-
+    void shouldTerminate();
 };
 
 

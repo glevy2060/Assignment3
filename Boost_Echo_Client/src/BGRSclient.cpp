@@ -25,17 +25,15 @@ string answerReader(string answer){
 }
 
 int main (int argc, char *argv[]) {
-    if (argc < 3) {
+/*    if (argc < 3) {
         std::cerr << "Usage: " << argv[0] << " host port" << std::endl << std::endl;
         return -1;
     }
     std::string host = argv[1];
-    short port = atoi(argv[2]); //server port
-
-/*
+    short port = atoi(argv[2]); //server port*/
     std::string host = "0.0.0.0";
     short port = atoi("7777"); //server port
-*/
+
 
     bool flag=false;
     mutex mutex;
@@ -44,7 +42,7 @@ int main (int argc, char *argv[]) {
     thread taskThread(&Task::run, &task);
 
     if (!connectionHandler.connect()) {
-        std::cerr << "Cannot connect to " << host << ":" << port << std::endl;
+        //std::cerr << "Cannot connect to " << host << ":" << port << std::endl;
         return 1;
     }
 
@@ -52,23 +50,25 @@ int main (int argc, char *argv[]) {
     while (1) {
         std::string answer; //
 
-        //lock
         if (!connectionHandler.getLine(answer)) {
-            std::cout << "Disconnected. Exiting...\n" << std::endl;
+            //std::cout << "Disconnected. Exiting...\n" << std::endl;
             break;
-        }
+        });
+
         //unlock
         answer=answerReader(answer);
         std::cout << answer << std::endl;
 
         if (answer[4] == '4') {
-            std::cout << "Exiting...\n" << std::endl;
+            //std::cout << "Exiting...\n" << std::endl;
+            task.shouldTerminate();
             taskThread.detach();
             break;
         }else if(answer.compare("ERROR 4") == 0){
             flag=false;
         }
     }
+    //std::cout << "check if infinite loop" << std::endl;
     return 0;
 }
 

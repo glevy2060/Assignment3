@@ -21,7 +21,7 @@ public class Student {
 
     //opcode: 3
     //todo throw the error opcode
-    public void logIn(String password) throws Exception{
+    public synchronized void logIn(String password) throws Exception{
         if(!this.password.equals(password)) throw new Exception("incorrect password");
         if(isLoggedIn) throw new Exception("user already logged in");
         isLoggedIn = true;
@@ -37,6 +37,7 @@ public class Student {
     //opcode: 5
     //todo add course num check before calling this function
     public void registerToCourse(Course course) throws Exception{
+        if(registeredCourses.contains(course)) throw new Exception("student already registered to this course");
         List<String> kdamCourse = course.getKdamCourses();
         if(!finishedAllKdam(kdamCourse)) throw new Exception("missing kdam courses");
         course.register(this); //throws exception
@@ -74,9 +75,16 @@ public class Student {
 
 
     private boolean finishedAllKdam(List<String> kdamCourse){
-        for(String course: kdamCourse){
-            if(!registeredCourses.contains(course))
-                return false;
+        List <String> regNumCourses = new ArrayList<>();
+        for(Course c : registeredCourses){
+            regNumCourses.add(c.getCourseNum());
+        }
+
+        if(kdamCourse.size()>0){
+            for(String course: kdamCourse){
+                if(!regNumCourses.contains(course))
+                    return false;
+            }
         }
         return true;
     }

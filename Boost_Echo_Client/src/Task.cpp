@@ -5,7 +5,7 @@
 #include "connectionHandler.h"
 #include "Task.h"
 using namespace std;
-Task::Task(std::mutex &mutex, ConnectionHandler& connectionHandler,bool& flag): _mutex(mutex), connectionHandler(connectionHandler),flag(flag){};
+Task::Task(std::mutex &mutex, ConnectionHandler& connectionHandler,bool& flag): _mutex(mutex), connectionHandler(connectionHandler),flag(flag){ stopRun = false;};
 int Task::twoSpacesCase(string line, char *lineAsChar){
     line = line.substr(line.find(" ") + 1, line.length());
     for(int i=2;i<line.length()+2;i++){
@@ -97,7 +97,7 @@ int Task::getCommandInOpcode(string line , char *lineAsChar){
 
 void Task::run() {
 
-    while(1){
+    while(!stopRun){
         const short bufsize = 1024;
         char buf[bufsize];
         if(!flag) {
@@ -109,11 +109,16 @@ void Task::run() {
             char lineAsChar[line.length()];
             int len = getCommandInOpcode(line, lineAsChar);
 
-            //lock
             if (!connectionHandler.sendBytes(lineAsChar, len)) { //change sendLine to sendByte()
-                std::cout << "Disconnected. Exiting...\n" << std::endl;
+                //std::cout << "Disconnected. Exiting...\n" << std::endl;
                 break;
             }
         }
     }
+
+    //std::cout << "check" << std::endl;
+}
+
+void Task::shouldTerminate(){
+    stopRun = true;
 }

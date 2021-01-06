@@ -42,15 +42,20 @@ public class Database {
 	 * into the bgu.spl.net.impl.Database, returns true if successful.
 	 */
 	public boolean initialize(String coursesFilePath) { //todo check public
+		Course newCourse = null;
 		try {
 			File courses = new File(coursesFilePath);
 			Scanner myReader = new Scanner(courses);
 			while (myReader.hasNextLine()){
 				String data = myReader.nextLine();
 				String[] c = data.split("\\|");
-				c[2] = c[2].substring(1, c[2].length()-1);
-				String[] kdamCourse = c[2].split(",");
-				Course newCourse = new Course(c[0], c[1], Arrays.asList(kdamCourse.clone()), Integer.parseInt(c[3]), 0);
+				if(c[2].length() == 2){
+					newCourse = new Course(c[0], c[1], new ArrayList<>(), Integer.parseInt(c[3]), 0);
+				} else{
+					c[2] = c[2].substring(1, c[2].length()-1);
+					String[] kdamCourse = c[2].split(",");
+					newCourse = new Course(c[0], c[1], Arrays.asList(kdamCourse.clone()), Integer.parseInt(c[3]), 0);
+				}
 				courseList.put(c[0], newCourse);
 			}
 			myReader.close();
