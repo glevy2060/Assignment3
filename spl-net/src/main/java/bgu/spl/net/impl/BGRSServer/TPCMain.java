@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 public class TPCMain {
 
     public static void main(String[] args) {
-        final int port = 7777;
+        final int port = Integer.parseInt(args[0]);
         final Supplier<MessagingProtocol<String>> protocolFactory= new Supplier<MessagingProtocol<String>>() {
             @Override
             public MessagingProtocol<String> get(){return new MessageProtocol();}

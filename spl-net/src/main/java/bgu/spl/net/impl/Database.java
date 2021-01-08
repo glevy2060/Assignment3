@@ -27,7 +27,7 @@ public class Database {
 	private Database() {
 		studentList = new ConcurrentHashMap<>();
 		courseList = new ConcurrentHashMap<>();
-		initialize("/home/spl211/Assignment3/spl-net/Courses.txt");
+		initialize("./Courses.txt");
 	}
 
 	/**

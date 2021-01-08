@@ -2,8 +2,8 @@
 // Created by spl211 on 03/01/2021.
 //
 
-#ifndef BOOST_ECHO_CLIENT_TASK_H
-#define BOOST_ECHO_CLIENT_TASK_H
+#ifndef BOOST_ECHO_CLIENT_TASK2_H
+#define BOOST_ECHO_CLIENT_TASK2_H
 #include <iostream>
 #include <mutex>
 #include <thread>
@@ -13,16 +13,15 @@ using namespace std;
 class Task {
 private:
     ConnectionHandler &connectionHandler;
-    bool shouldterminate;
-    bool flag;
-    std::vector<string>& vec;
 
 public:
-    Task(ConnectionHandler &connectionHandler,std::vector<string> &vec);
+    Task(ConnectionHandler &connectionHandler);
+    int twoSpacesCase(string line, char *lineAsChar);
+    int fourBytesCase(string line, char* lineAsChar);
+    int getCommandInOpcode(string line , char *lineAsChar);
     void run ();
-    void shouldTerminate();
-    void flagChanger();
+
 };
 
 
-#endif //BOOST_ECHO_CLIENT_TASK_H
+#endif //BOOST_ECHO_CLIENT_TASK2_H

@@ -197,33 +197,6 @@ src/Task.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.s
 .PHONY : src/Task.cpp.s
 
-src/Task1.o: src/Task1.cpp.o
-
-.PHONY : src/Task1.o
-
-# target to build an object file
-src/Task1.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/Task1.cpp.o
-.PHONY : src/Task1.cpp.o
-
-src/Task1.i: src/Task1.cpp.i
-
-.PHONY : src/Task1.i
-
-# target to preprocess a source file
-src/Task1.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/Task1.cpp.i
-.PHONY : src/Task1.cpp.i
-
-src/Task1.s: src/Task1.cpp.s
-
-.PHONY : src/Task1.s
-
-# target to generate assembly for a file
-src/Task1.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/Task1.cpp.s
-.PHONY : src/Task1.cpp.s
-
 src/connectionHandler.o: src/connectionHandler.cpp.o
 
 .PHONY : src/connectionHandler.o
@@ -266,9 +239,6 @@ help:
 	@echo "... src/Task.o"
 	@echo "... src/Task.i"
 	@echo "... src/Task.s"
-	@echo "... src/Task1.o"
-	@echo "... src/Task1.i"
-	@echo "... src/Task1.s"
 	@echo "... src/connectionHandler.o"
 	@echo "... src/connectionHandler.i"
 	@echo "... src/connectionHandler.s"
