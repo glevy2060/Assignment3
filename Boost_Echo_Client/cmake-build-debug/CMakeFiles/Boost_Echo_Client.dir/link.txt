@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o  -o Boost_Echo_Client  -lboost_system -pthread 
+/usr/bin/c++  -g   CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o CMakeFiles/Boost_Echo_Client.dir/src/Task1.cpp.o  -o Boost_Echo_Client  -lboost_system -pthread 

@@ -1,6 +1,10 @@
 package bgu.spl.net.passiveObjects;
 
+import bgu.spl.net.impl.Database;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Student {
@@ -9,6 +13,7 @@ public class Student {
     private List<Course> registeredCourses;
     private boolean isAdmin;
     private boolean isLoggedIn;
+    private Database db;
 
     //todo: check coupling (student, course);
     public Student(String user, String password, boolean isAdmin){
@@ -17,6 +22,7 @@ public class Student {
         this.isAdmin = isAdmin;
         this.registeredCourses = new ArrayList<>();
         this.isLoggedIn = false;
+        this.db = Database.getInstance();
     }
 
     //opcode: 3
@@ -45,11 +51,11 @@ public class Student {
     }
 
     //opcode: 8
-    // todo: print course num and not course object
     public String studentStatus(){
         String toReturn = "\n" + "Student: " + user +"\n"+ "Courses: [";
-        for(Course c: registeredCourses)
-            toReturn = toReturn + c + ",";
+        sort();
+        for(Course c : registeredCourses)
+            toReturn = toReturn + c.getCourseNum() + ",";
         if(registeredCourses.size()>0)
             toReturn = toReturn.substring(0, toReturn.length()-1);
         toReturn = toReturn + "]";
@@ -60,9 +66,9 @@ public class Student {
     //todo: check the course unmber is valid before calling this method;
     public String isRegistered(Course course){
         if(registeredCourses.contains(course))
-            return "REGISTERED";
+            return "\nREGISTERED";
         else
-            return "NOT REGISTERED";
+            return "\nNOT REGISTERED";
     }
 
     //opcode: 10
@@ -95,7 +101,8 @@ public class Student {
 
     //returning as: [num,num,num]
     public String getRegisteredCourses() {
-        String s = "[";
+        String s = "\n[";
+        sort();
         for (Course c: registeredCourses)
             s = s + c.getCourseNum()+",";
         if(registeredCourses.size()>0)
@@ -105,6 +112,15 @@ public class Student {
 
     public boolean isAdmin() {
         return isAdmin;
+    }
+
+    private void sort(){
+        Collections.sort(registeredCourses, new Comparator<Course>() {
+            @Override
+            public int compare(Course c1, Course c2) {
+                return c1.getIndex() < c2.getIndex() ? -1: c1.getIndex() == c2.getIndex() ? 0: 1;
+            }
+        });
     }
 
 }

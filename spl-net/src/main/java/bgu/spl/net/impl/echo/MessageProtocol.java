@@ -97,7 +97,8 @@ public class MessageProtocol implements MessagingProtocol<String> {
             }
         } else if (command.equals("08")) {
             //todo check if unlogged user can do "kdamCourse"
-            if (currStudent == null || !currStudent.isAdmin())
+            if (currStudent == null || !currStudent.isAdmin() ||
+                     !db.getStudentList().containsKey(msg[1])  || db.getStudentList().get(msg[1]).isAdmin())
                 m = new ServerMessage(13, 8, "");
             else {
                 m = new ServerMessage(12, 8, db.getStudentList().get(msg[1]).studentStatus());
@@ -124,6 +125,7 @@ public class MessageProtocol implements MessagingProtocol<String> {
             if(currStudent == null)
                 m= new ServerMessage(13, 11, "");
             else {
+
                 m = new ServerMessage(12, 11, currStudent.getRegisteredCourses());
             }
         }else{

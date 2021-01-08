@@ -81,7 +81,7 @@ bool ConnectionHandler::getFrame(string& frame){
             frame.append(1, ch);
             len ++;
             if(len > 2){
-                if(frame[1] == '3' & len == 4){
+                if(frame[1] == '3' && len == 4){
                     break;
                 }
             }

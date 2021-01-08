@@ -1,6 +1,10 @@
 package bgu.spl.net.passiveObjects;
 
+import bgu.spl.net.impl.Database;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Course {
@@ -9,13 +13,16 @@ public class Course {
     private List<String> kdamCourses;
     private int numOfMaxStudent;
     private List<Student> listOfStudents;
+    private Database db;
+    private int index;
 
-    public Course(String courseNum, String courseName, List<String> kdamCourses, int numOfMaxStudent, int numOfStudent) {
+    public Course(String courseNum, String courseName, List<String> kdamCourses, int numOfMaxStudent, int index) {
         this.courseNum = courseNum;
         this.courseName = courseName;
         this.kdamCourses = kdamCourses;
         this.numOfMaxStudent = numOfMaxStudent;
         this.listOfStudents = new ArrayList<>();
+        this.index = index;
     }
 
     public synchronized void register(Student student) throws Exception {
@@ -34,11 +41,17 @@ public class Course {
 
     //opcode:7
     public synchronized String courseStat(){
-        String toReturn =  "\nCourse:(" +courseNum +") "+ courseName +"\n"
-                +"Seats Available:" + listOfStudents.size()+"/"+numOfMaxStudent + "\n"+
-                "Students Registered:[";
+        int seatsAvailable = numOfMaxStudent - listOfStudents.size();
+        String toReturn =  "\nCourse: (" +courseNum +") "+ courseName +"\n"
+                +"Seats Available: " +seatsAvailable +"/"+numOfMaxStudent + "\n"+
+                "Students Registered: [";
+        List<String> studentsAsStrings=new ArrayList<>();
         for (Student s: listOfStudents){
-            toReturn = toReturn + s.getUser() +",";
+           studentsAsStrings.add(s.getUser());
+        }
+        studentsAsStrings.sort(Comparator.comparing(String::toString));
+        for(String s : studentsAsStrings){
+            toReturn += s +",";
         }
         if(listOfStudents.size() > 0)
             toReturn = toReturn.substring(0, toReturn.length()-1);
@@ -52,12 +65,27 @@ public class Course {
 
     public String getKdamCoursesAsString(){
         String toReturn = "\n[";
-        for(String s: kdamCourses){
-            toReturn += s+",";
-        }
+        sort();
+        for(String c:  kdamCourses)
+            toReturn += c + ",";
+
         if(kdamCourses.size() > 0)
             toReturn = toReturn.substring(0, toReturn.length()-1);
         return toReturn+"]";
 
+    }
+
+    private void sort(){
+        db = Database.getInstance();
+        Collections.sort(kdamCourses, new Comparator<String>() {
+            @Override
+            public int compare(String c1, String c2) {
+                return db.getCourseList().get(c1).getIndex() < db.getCourseList().get(c2).getIndex() ? -1: db.getCourseList().get(c1).getIndex() == db.getCourseList().get(c2).getIndex() ? 0: 1;
+            }
+        });
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

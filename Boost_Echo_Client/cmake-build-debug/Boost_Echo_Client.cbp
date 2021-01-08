@@ -89,6 +89,9 @@
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/include/Task.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
+		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/include/Task1.h">
+			<Option target="Boost_Echo_Client"/>
+		</Unit>
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/include/connectionHandler.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
@@ -96,6 +99,9 @@
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/Task.cpp">
+			<Option target="Boost_Echo_Client"/>
+		</Unit>
+		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/Task1.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
 		<Unit filename="/home/spl211/Assignment3/Boost_Echo_Client/src/connectionHandler.cpp">
