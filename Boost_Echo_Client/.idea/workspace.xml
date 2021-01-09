@@ -34,53 +34,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c367a95-eec4-4bdd-8c8a-13b7d018c606" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/include/Task2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/BGRSclient" beforeDir="false" afterPath="$PROJECT_DIR$/bin/BGRSclient" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/BGRSclient.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin/BGRSclient.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Task.o" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Task.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Boost_Echo_Client.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/progress.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/BGRSclient.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/Task.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/Task1.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Task1.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Task.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/Task.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Task.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BGRSclient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/BGRSclient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/BGRSclient" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/Courses" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/Courses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/Courses.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/spl-net.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/Server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/ReactorMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/ReactorMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/TPCMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/TPCMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/BGRSServer/Tester" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/src/main/java/bgu/spl/net/impl/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/ReactorMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/ReactorMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/TPCMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/TPCMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/CommandProcessor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/RunClientTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/StreamReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/Tests$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/Tests$Course.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/Tests$CourseComparator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/BGRSServer/Tester/Tests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/../spl-net/target/classes/bgu/spl/net/impl/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,11 +136,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -216,7 +176,8 @@
       <workItem from="1610095464691" duration="4634000" />
       <workItem from="1610102228206" duration="2049000" />
       <workItem from="1610104863818" duration="3591000" />
-      <workItem from="1610119947843" duration="2579000" />
+      <workItem from="1610119947843" duration="3333000" />
+      <workItem from="1610202573078" duration="3400000" />
     </task>
     <servers />
   </component>
@@ -234,16 +195,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/BGRSclient.cpp</url>
-          <line>47</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

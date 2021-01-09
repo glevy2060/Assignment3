@@ -65,7 +65,6 @@ public class Course {
 
     public String getKdamCoursesAsString(){
         String toReturn = "\n[";
-        sort();
         for(String c:  kdamCourses)
             toReturn += c + ",";
 
@@ -75,7 +74,7 @@ public class Course {
 
     }
 
-    private void sort(){
+    public void sort(){
         db = Database.getInstance();
         Collections.sort(kdamCourses, new Comparator<String>() {
             @Override

@@ -3,6 +3,7 @@
 #include <Task.h>
 #include <connectionHandler.h>
 #include <thread>
+#include <condition_variable>
 
 
 /**
@@ -40,7 +41,9 @@ int main (int argc, char *argv[]) {
         return 1;
     }
 
-    Task task(connectionHandler);
+    std::mutex mutex;
+    std::condition_variable cv;
+    Task task(connectionHandler, mutex, cv);
     thread taskThread(&Task::run, &task);
 
 
@@ -55,13 +58,18 @@ int main (int argc, char *argv[]) {
         std::cout << answer << std::endl;
 
         if (answer[4] == '4') {
-            taskThread.detach();
+            task.shouldTerminate();
+            {std::lock_guard<std::mutex>lk(mutex);}
+            cv.notify_all();
+            //taskThread.detach();
             break;
-
+        }else if(answer == "ERROR 4"){
+            {std::lock_guard<std::mutex>lk(mutex);}
+            cv.notify_all();
         }
 
     }
-
+    taskThread.join();
     return 0;
 }
 

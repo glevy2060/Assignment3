@@ -4,9 +4,10 @@
 
 #include "connectionHandler.h"
 #include "Task.h"
+
 using namespace std;
 //todo remove flag and stopp
-Task::Task(ConnectionHandler& connectionHandler): connectionHandler(connectionHandler){};
+Task::Task(ConnectionHandler& connectionHandler, std::mutex& mutex, condition_variable& cv): connectionHandler(connectionHandler), mutex(mutex), cv(cv), shouldterminate(false){};
 int Task::twoSpacesCase(string line, char *lineAsChar){
     line = line.substr(line.find(" ") + 1, line.length());
     int size=line.length();
@@ -98,7 +99,7 @@ int Task::getCommandInOpcode(string line , char *lineAsChar){
 
 void Task::run() {
 
-    while (1) {
+    while (!shouldterminate) {
         const short bufsize = 1024;
         char buf[bufsize];
         std::cin.getline(buf, bufsize);
@@ -109,5 +110,12 @@ void Task::run() {
         if (!connectionHandler.sendBytes(lineAsChar, len)) {
             break;
         }
+
+        if(line == "LOGOUT"){
+            std::unique_lock<std::mutex>lk(mutex);
+            cv.wait(lk);
+        }
     }
 }
+
+void Task::shouldTerminate(){shouldterminate = true;}

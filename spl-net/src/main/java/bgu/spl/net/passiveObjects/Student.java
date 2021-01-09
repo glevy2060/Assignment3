@@ -42,7 +42,7 @@ public class Student {
 
     //opcode: 5
     //todo add course num check before calling this function
-    public void registerToCourse(Course course) throws Exception{
+    public synchronized void registerToCourse(Course course) throws Exception{
         if(registeredCourses.contains(course)) throw new Exception("student already registered to this course");
         List<String> kdamCourse = course.getKdamCourses();
         if(!finishedAllKdam(kdamCourse)) throw new Exception("missing kdam courses");
@@ -51,7 +51,7 @@ public class Student {
     }
 
     //opcode: 8
-    public String studentStatus(){
+    public synchronized String studentStatus(){
         String toReturn = "\n" + "Student: " + user +"\n"+ "Courses: [";
         sort();
         for(Course c : registeredCourses)
@@ -72,7 +72,7 @@ public class Student {
     }
 
     //opcode: 10
-    public void unregisterToCourse(Course course) throws Exception{
+    public synchronized void unregisterToCourse(Course course) throws Exception{
         if(!registeredCourses.contains(course)) throw new Exception("not registered to this course already");
         course.unregister(this); //throws exception
         registeredCourses.remove(course);
@@ -80,7 +80,7 @@ public class Student {
 
 
 
-    private boolean finishedAllKdam(List<String> kdamCourse){
+    private synchronized boolean finishedAllKdam(List<String> kdamCourse){
         List <String> regNumCourses = new ArrayList<>();
         for(Course c : registeredCourses){
             regNumCourses.add(c.getCourseNum());
@@ -114,7 +114,7 @@ public class Student {
         return isAdmin;
     }
 
-    private void sort(){
+    private synchronized void sort(){
         Collections.sort(registeredCourses, new Comparator<Course>() {
             @Override
             public int compare(Course c1, Course c2) {

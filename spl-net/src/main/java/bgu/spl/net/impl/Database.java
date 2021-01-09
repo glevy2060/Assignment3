@@ -65,6 +65,9 @@ public class Database {
 			System.out.println("file not found");
 			return false;
 		}
+
+		for(Map.Entry<String, Course> c : courseList.entrySet())
+			c.getValue().sort();
 		return true;
 	}
 
@@ -76,4 +79,5 @@ public class Database {
 	public Map<String,Course> getCourseList() {
 		return courseList;
 	}
+
 }
