@@ -16,6 +16,7 @@ public class ReactorMain {
 
     public static void main(String[] args) {
         final int port = Integer.parseInt(args[0]);
+        final int numOfThreads = Integer.parseInt(args[1]);
         final Supplier<MessagingProtocol> protocolFactory=new Supplier<MessagingProtocol>() {
             @Override
             public MessagingProtocol<String> get(){return new MessageProtocol();}
@@ -27,7 +28,7 @@ public class ReactorMain {
             }
         };
 
-        Reactor reactor = new Reactor(10, port, protocolFactory, readerFactory);
+        Reactor reactor = new Reactor(numOfThreads, port, protocolFactory, readerFactory);
         reactor.serve();
 
 
